@@ -39,20 +39,34 @@ using namespace std;
 // Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
 // Return k
 
-    int removeDuplicates(vector<int>& nums) {
-      int j=1;
-      int n = nums.size();
+//     int removeDuplicates(vector<int>& nums) {
+//       int j=1;
+//       int n = nums.size();
 
-      for(int i = 1; i<n; i++){
-        if(nums[i]!= nums[i-1]){
-        nums[j] = nums[i];
-        j++;
-      }
-    }
+//       for(int i = 1; i<n; i++){
+//         if(nums[i]!= nums[i-1]){
+//         nums[j] = nums[i];
+//         j++;
+//       }
+//     }
 
-      return j;
+//       return j;
       
-}
+// }
+
+                                              // QUESTION 3
+
+//  Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+// You must implement a solution with a linear runtime complexity and use only constant extra space 
+
+    int singleNumber(vector<int>& nums) {
+        int ans=0;
+        for(int i=0;i<nums.size();i++) {
+ans = ans ^nums[i];
+        }
+        return ans;
+    }
 
 int main() {
     
