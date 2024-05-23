@@ -60,13 +60,28 @@ using namespace std;
 
 // You must implement a solution with a linear runtime complexity and use only constant extra space 
 
-    int singleNumber(vector<int>& nums) {
-        int ans=0;
-        for(int i=0;i<nums.size();i++) {
-ans = ans ^nums[i];
-        }
-        return ans;
-    }
+//     int singleNumber(vector<int>& nums) {
+//         int ans=0;
+//         for(int i=0;i<nums.size();i++) {
+// ans = ans ^nums[i];
+//         }
+//         return ans;
+//     }
+
+                                            // QUESTION 4
+
+// Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array. 
+
+     int missingNumber(vector<int>& nums) {
+     int ans=0;
+     int n= nums.size();
+     for(int i=0; i<n; i++) {
+     ans += nums[i];
+      }
+     int expected= n*(n+1)/2;
+     int finalans= expected-ans;
+     return finalans;
+    };
 
 int main() {
     
