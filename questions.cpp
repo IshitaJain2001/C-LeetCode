@@ -114,23 +114,46 @@ using namespace std;
 
 // You must write an algorithm with O(log n) runtime complexity.
 
-   int search(vector<int>& nums, int target) {
-     int start= 0;
-     int end= nums.size() -1;
-     while(start<=end)  {
-        int mid= start+(end-start)/2;
-        if(nums[mid]==target) {
-            return mid;
-        }
-        else if(nums[mid]>target) {
-            end=mid-1;
+//    int search(vector<int>& nums, int target) {
+//      int start= 0;
+//      int end= nums.size() -1;
+//      while(start<=end)  {
+//         int mid= start+(end-start)/2;
+//         if(nums[mid]==target) {
+//             return mid;
+//         }
+//         else if(nums[mid]>target) {
+//             end=mid-1;
 
+//         }
+//         else{
+//             start=mid+1;
+//         }
+//      }
+//      return -1;
+//     }
+
+                                            // QUESTION 7
+
+//  Given two integer arrays nums1 and nums2, return an array of their 
+// intersection
+// . Each element in the result must be unique and you may return the result in any order. 
+
+vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector <int> result;
+        for(int i=0; i<nums1.size();i++){
+            for(int j=0; j<nums2.size();j++) {
+                if(nums1[i]==nums2[j]){
+                    if((find(result.begin(), result.end(), nums1[i]) != result.end())){
+                        continue;
+                    }
+                    else{
+                        result.push_back(nums1[i]);
+                    }
+                }
+            }
         }
-        else{
-            start=mid+1;
-        }
-     }
-     return -1;
+        return result;
     }
 
 
