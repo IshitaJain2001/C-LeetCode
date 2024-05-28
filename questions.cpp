@@ -139,23 +139,74 @@ using namespace std;
 // intersection
 // . Each element in the result must be unique and you may return the result in any order. 
 
-vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        vector <int> result;
-        for(int i=0; i<nums1.size();i++){
-            for(int j=0; j<nums2.size();j++) {
-                if(nums1[i]==nums2[j]){
-                    if((find(result.begin(), result.end(), nums1[i]) != result.end())){
-                        continue;
-                    }
-                    else{
-                        result.push_back(nums1[i]);
-                    }
-                }
-            }
-        }
-        return result;
-    }
+// vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+//         vector <int> result;
+//         for(int i=0; i<nums1.size();i++){
+//             for(int j=0; j<nums2.size();j++) {
+//                 if(nums1[i]==nums2[j]){
+//                     if((find(result.begin(), result.end(), nums1[i]) != result.end())){
+//                         continue;
+//                     }
+//                     else{
+//                         result.push_back(nums1[i]);
+//                     }
+//                 }
+//             }
+//         }
+//         return result;
+//     }
 
+
+                                           // QUESTION 8
+
+// There is an integer array nums sorted in ascending order (with distinct values).
+
+// Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
+
+// Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+// You must write an algorithm with O(log n) runtime complexity.
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int pivot=-1;
+     for(int i=0; i<nums.size()-1;i++) {
+        if(nums[i]>nums[i+1]) {
+            pivot= i+1;
+            break;
+        }
+     }
+     int start=0;
+     int end=0;
+     long long mid=0;
+     if(pivot == -1 || (nums[0]<=target && target<=nums[pivot-1]) ){
+     start= 0;
+         end= (pivot == -1)?nums.size()-1 : pivot-1;
+            mid= start+(end-start)/2;
+    }
+     else{
+    start= pivot;
+         end= nums.size()-1;
+            mid= start+(end-start)/2;
+     }
+  
+    while(start<=end){
+
+        if(nums[mid]==target){
+            return mid;
+        }
+        else if(nums[mid]>target) {
+            end=mid-1;
+        }
+        else{
+            start=mid+1;
+        }
+      mid= start+(end-start)/2;
+    }
+    return -1;
+    }
+};
 
 
 int main() {
