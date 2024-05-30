@@ -167,46 +167,85 @@ using namespace std;
 
 // You must write an algorithm with O(log n) runtime complexity.
 
-class Solution {
-public:
-    int search(vector<int>& nums, int target) {
-        int pivot=-1;
-     for(int i=0; i<nums.size()-1;i++) {
-        if(nums[i]>nums[i+1]) {
-            pivot= i+1;
-            break;
-        }
-     }
-     int start=0;
-     int end=0;
-     long long mid=0;
-     if(pivot == -1 || (nums[0]<=target && target<=nums[pivot-1]) ){
-     start= 0;
-         end= (pivot == -1)?nums.size()-1 : pivot-1;
-            mid= start+(end-start)/2;
-    }
-     else{
-    start= pivot;
-         end= nums.size()-1;
-            mid= start+(end-start)/2;
-     }
-  
-    while(start<=end){
 
-        if(nums[mid]==target){
-            return mid;
-        }
-        else if(nums[mid]>target) {
-            end=mid-1;
-        }
+//     int search(vector<int>& nums, int target) {
+//         int pivot=-1;
+//      for(int i=0; i<nums.size()-1;i++) {
+//         if(nums[i]>nums[i+1]) {
+//             pivot= i+1;
+//             break;
+//         }
+//      }
+//      int start=0;
+//      int end=0;
+//      long long mid=0;
+//      if(pivot == -1 || (nums[0]<=target && target<=nums[pivot-1]) ){
+//      start= 0;
+//          end= (pivot == -1)?nums.size()-1 : pivot-1;
+//             mid= start+(end-start)/2;
+//     }
+//      else{
+//     start= pivot;
+//          end= nums.size()-1;
+//             mid= start+(end-start)/2;
+//      }
+  
+//     while(start<=end){
+
+//         if(nums[mid]==target){
+//             return mid;
+//         }
+//         else if(nums[mid]>target) {
+//             end=mid-1;
+//         }
+//         else{
+//             start=mid+1;
+//         }
+//       mid= start+(end-start)/2;
+//     }
+//     return -1;
+//     }
+
+                                           // QUESTION 9
+
+// At a lemonade stand, each lemonade costs $5. Customers are standing in a queue to buy from you and order one at a time (in the order specified by bills). Each customer will only buy one lemonade and pay with either a $5, $10, or $20 bill. You must provide the correct change to each customer so that the net transaction is that the customer pays $5.
+
+// Note that you do not have any change in hand at first.
+
+// Given an integer array bills where bills[i] is the bill the ith customer pays, return true if you can provide every customer with the correct change, or false otherwise.
+
+     bool lemonadeChange(vector<int>& bills) {
+        int fives=0;
+        int tens=0;
+        bool ans=true;
+      for(int i=0;i<bills.size();i++)  {
+if(bills[i]==5){
+        fives += 1;
+      }
+      else if(bills[i]==10){
+        if(fives>0) {
+            fives = fives-1;
+            tens= tens+1;
+         }
         else{
-            start=mid+1;
+            ans= false;
+            break;
+        }}
+      else{
+        if(tens>0 &&fives>0 ) {
+         tens= tens-1;
+         fives= fives-1;
+      }
+        else if(fives>=3) {
+            fives= fives-3;
+       }
+        else{
+            ans= false;
         }
-      mid= start+(end-start)/2;
-    }
-    return -1;
-    }
-};
+       }
+     }
+      return ans;
+    }  
 
 
 int main() {
