@@ -214,40 +214,57 @@ using namespace std;
 
 // Given an integer array bills where bills[i] is the bill the ith customer pays, return true if you can provide every customer with the correct change, or false otherwise.
 
-     bool lemonadeChange(vector<int>& bills) {
-        int fives=0;
-        int tens=0;
-        bool ans=true;
-      for(int i=0;i<bills.size();i++)  {
-if(bills[i]==5){
-        fives += 1;
-      }
-      else if(bills[i]==10){
-        if(fives>0) {
-            fives = fives-1;
-            tens= tens+1;
-         }
-        else{
-            ans= false;
-            break;
-        }}
-      else{
-        if(tens>0 &&fives>0 ) {
-         tens= tens-1;
-         fives= fives-1;
-      }
-        else if(fives>=3) {
-            fives= fives-3;
-       }
-        else{
-            ans= false;
-        }
-       }
-     }
-      return ans;
-    }  
+//      bool lemonadeChange(vector<int>& bills) {
+//         int fives=0;
+//         int tens=0;
+//         bool ans=true;
+//       for(int i=0;i<bills.size();i++)  {
+// if(bills[i]==5){
+//         fives += 1;
+//       }
+//       else if(bills[i]==10){
+//         if(fives>0) {
+//             fives = fives-1;
+//             tens= tens+1;
+//          }
+//         else{
+//             ans= false;
+//             break;
+//         }}
+//       else{
+//         if(tens>0 &&fives>0 ) {
+//          tens= tens-1;
+//          fives= fives-1;
+//       }
+//         else if(fives>=3) {
+//             fives= fives-3;
+//        }
+//         else{
+//             ans= false;
+//         }
+//        }
+//      }
+//       return ans;
+//     }  
+
+
+// question 10
+
+// ques-: Last occurence of an element in an array
+
+int lastoccurence(int arr[], int n,int tar){
+  int lastindex=-1;
+  for(int i=0; i<n;i++){
+    if(arr[i]==tar){
+      lastindex= i;
+    }
+    
+  }
+  return lastindex;
+}
 
 
 int main() {
-    
+   
+
 }
