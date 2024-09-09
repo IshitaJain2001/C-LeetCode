@@ -252,19 +252,34 @@ using namespace std;
 
 // ques-: Last occurence of an element in an array
 
-int lastoccurence(int arr[], int n,int tar){
-  int lastindex=-1;
+// int lastoccurence(int arr[], int n,int tar){
+//   int lastindex=-1;
+//   for(int i=0; i<n;i++){
+//     if(arr[i]==tar){
+//       lastindex= i;
+//     }
+    
+//   }
+//   return lastindex;
+// }
+
+// question 11
+
+// ques: first occurence of an element in an array
+
+int firstoccurence(int arr[], int n,int tar){
+  int firstindex=-1;
   for(int i=0; i<n;i++){
     if(arr[i]==tar){
-      lastindex= i;
+      firstindex= i;
+      break;
     }
     
   }
-  return lastindex;
+  return firstindex;
 }
 
-
 int main() {
-   
+ 
 
 }
