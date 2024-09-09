@@ -279,15 +279,15 @@ using namespace std;
 //   return firstindex;
 // }
 
-int main() {
+// question 12
 
-  //another way to find first occurence
- int arr [10] ={1,1,2,2,2,3,3,4,4,4};
- int start=0;
- int end= (sizeof(arr)/sizeof(int))-1;
- int tar= 2;
- int ans=-1;
- while(start<=end){
+// ques-: count the no of ocuurences of an element in a sorted array using BS
+
+int firstOccurence(int arr[], int n,int tar){
+  int start=0;
+  int end= n-1;
+  int ans=-1;
+   while(start<=end){
 int mid= (start+end)/2;
 if(tar>arr[mid]){
   start= mid+1;
@@ -300,5 +300,43 @@ if(tar==arr[mid]){
  end= mid-1;
 }
 }
+return ans;
+}
 
-cout<<ans;}
+int lastOccurence(int arr[],int n,int tar){
+    int start=0;
+  int end= n-1;
+  int ans=-1;
+   while(start<=end){
+int mid= (start+end)/2;
+if(tar>arr[mid]){
+  start= mid+1;
+}
+if(tar<arr[mid]){
+  end= mid-1;
+}
+if(tar==arr[mid]){
+ ans= mid;
+start= mid+1;
+}
+}
+return ans;
+}
+
+int totalOccurences(int arr[],int n,int tar){
+  int val2= lastOccurence(arr,n,tar);
+  int val1= firstOccurence(arr,n,tar);
+  return val2-val1+1;
+}
+
+
+int main() {
+
+ 
+
+
+int arr[7] ={1,1,1,1,2,4,5};
+int ans= totalOccurences(arr,7,1);
+cout<<ans;
+return 0;
+}
