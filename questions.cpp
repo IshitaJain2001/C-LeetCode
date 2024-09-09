@@ -267,19 +267,38 @@ using namespace std;
 
 // ques: first occurence of an element in an array
 
-int firstoccurence(int arr[], int n,int tar){
-  int firstindex=-1;
-  for(int i=0; i<n;i++){
-    if(arr[i]==tar){
-      firstindex= i;
-      break;
-    }
+// int firstoccurence(int arr[], int n,int tar){
+//   int firstindex=-1;
+//   for(int i=0; i<n;i++){
+//     if(arr[i]==tar){
+//       firstindex= i;
+//       break;
+//     }
     
-  }
-  return firstindex;
-}
+//   }
+//   return firstindex;
+// }
 
 int main() {
- 
 
+  //another way to find first occurence
+ int arr [10] ={1,1,2,2,2,3,3,4,4,4};
+ int start=0;
+ int end= (sizeof(arr)/sizeof(int))-1;
+ int tar= 2;
+ int ans=-1;
+ while(start<=end){
+int mid= (start+end)/2;
+if(tar>arr[mid]){
+  start= mid+1;
 }
+if(tar<arr[mid]){
+  end= mid-1;
+}
+if(tar==arr[mid]){
+ ans= mid;
+ end= mid-1;
+}
+}
+
+cout<<ans;}
