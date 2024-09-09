@@ -283,60 +283,75 @@ using namespace std;
 
 // ques-: count the no of ocuurences of an element in a sorted array using BS
 
-int firstOccurence(int arr[], int n,int tar){
-  int start=0;
-  int end= n-1;
-  int ans=-1;
-   while(start<=end){
-int mid= (start+end)/2;
-if(tar>arr[mid]){
-  start= mid+1;
-}
-if(tar<arr[mid]){
-  end= mid-1;
-}
-if(tar==arr[mid]){
- ans= mid;
- end= mid-1;
-}
+// int firstOccurence(int arr[], int n,int tar){
+//   int start=0;
+//   int end= n-1;
+//   int ans=-1;
+//    while(start<=end){
+// int mid= (start+end)/2;
+// if(tar>arr[mid]){
+//   start= mid+1;
+// }
+// if(tar<arr[mid]){
+//   end= mid-1;
+// }
+// if(tar==arr[mid]){
+//  ans= mid;
+//  end= mid-1;
+// }
+// }
+// return ans;
+// }
+
+// int lastOccurence(int arr[],int n,int tar){
+//     int start=0;
+//   int end= n-1;
+//   int ans=-1;
+//    while(start<=end){
+// int mid= (start+end)/2;
+// if(tar>arr[mid]){
+//   start= mid+1;
+// }
+// if(tar<arr[mid]){
+//   end= mid-1;
+// }
+// if(tar==arr[mid]){
+//  ans= mid;
+// start= mid+1;
+// }
+// }
+// return ans;
+// }
+
+// int totalOccurences(int arr[],int n,int tar){
+//   int val2= lastOccurence(arr,n,tar);
+//   int val1= firstOccurence(arr,n,tar);
+//   return val2-val1+1;
+// }
+
+//question 13
+
+// ques-: binary to octal
+
+int convert(int num){
+
+int ans=0;
+int pow=1;
+while(num>0){
+  int rem= num%8;
+  ans += rem* pow;
+  pow =pow*10;
+  num= num/8;
 }
 return ans;
 }
-
-int lastOccurence(int arr[],int n,int tar){
-    int start=0;
-  int end= n-1;
-  int ans=-1;
-   while(start<=end){
-int mid= (start+end)/2;
-if(tar>arr[mid]){
-  start= mid+1;
-}
-if(tar<arr[mid]){
-  end= mid-1;
-}
-if(tar==arr[mid]){
- ans= mid;
-start= mid+1;
-}
-}
-return ans;
-}
-
-int totalOccurences(int arr[],int n,int tar){
-  int val2= lastOccurence(arr,n,tar);
-  int val1= firstOccurence(arr,n,tar);
-  return val2-val1+1;
-}
-
-
 int main() {
 
  
 
 
-int arr[7] ={1,1,1,1,2,4,5};
-int ans= totalOccurences(arr,7,1);
-cout<<ans;
+
+
+
 return 0;
 }
