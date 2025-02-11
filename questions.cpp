@@ -333,19 +333,19 @@ using namespace std;
 
 // ques-: binary to octal
 
-int convert(int num){
+// int convert(int num){
 
-int ans=0;
-int pow=1;
-while(num>0){
-  int rem= num%8;
-  ans += rem* pow;
-  pow =pow*10;
-  num= num/8;
-}
-return ans;
-}
-int main() {
+// int ans=0;
+// int pow=1;
+// while(num>0){
+//   int rem= num%8;
+//   ans += rem* pow;
+//   pow =pow*10;
+//   num= num/8;
+// }
+// return ans;
+// }
+// int main() {
 
  
 
@@ -353,5 +353,5 @@ int main() {
 
 
 
-return 0;
-}
+// return 0;
+// }
